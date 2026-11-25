@@ -1,3 +1,14 @@
+---
+title: Invoice Desk
+emoji: 🧾
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 8765
+pinned: false
+short_description: Invoice PDF to AP decision, with every check visible
+---
+
 # Invoice Desk — automated invoice processing (PS-1: from PDF to decision)
 
 Invoice Desk takes a vendor invoice PDF (digital or scanned), reads it, checks it against your vendor master,
