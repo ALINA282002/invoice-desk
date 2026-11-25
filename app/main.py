@@ -87,6 +87,23 @@ def _startup() -> None:
     threading.Thread(target=warm, daemon=True).start()
     if os.environ.get("INBOX_WATCH", "1") == "1":
         threading.Thread(target=_watch_inbox, daemon=True).start()
+    # Free hosting tiers (Render) put an idle service to sleep after ~15 min and its disk is wiped on wake-up.
+    # Pinging our own public URL every 10 min counts as traffic, so the instance — and the invoices — stay alive.
+    keepalive = os.environ.get("KEEPALIVE_URL") or os.environ.get("RENDER_EXTERNAL_URL")
+    if keepalive and os.environ.get("KEEPALIVE", "1") == "1":
+        threading.Thread(target=_keep_awake, args=(keepalive.rstrip("/") + "/api/health",), daemon=True).start()
+
+
+def _keep_awake(url: str) -> None:
+    import urllib.request
+    log.info("keep-awake: pinging %s every 10 minutes", url)
+    while True:
+        time.sleep(600)
+        try:
+            with urllib.request.urlopen(url, timeout=30) as r:
+                r.read(200)
+        except Exception as e:
+            log.warning("keep-awake ping failed: %s", e)
 
 
 def _watch_inbox() -> None:
