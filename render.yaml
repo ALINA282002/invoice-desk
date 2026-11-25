@@ -1,0 +1,18 @@
+# Render Blueprint — deploys Invoice Desk straight from this GitHub repo.
+# Render dashboard: New > Blueprint > pick this repo > Apply.  (Or use the "Deploy to Render" button in README.)
+services:
+  - type: web
+    name: invoice-desk
+    runtime: docker
+    plan: free
+    autoDeploy: true            # every push to main redeploys
+    healthCheckPath: /api/health
+    envVars:
+      - key: BOOTSTRAP_DIR      # free instances have ephemeral disks: reload company, vendors and POs on start
+        value: demo-config
+      - key: INBOX_WATCH        # no mailbox folder in the cloud
+        value: "0"
+      - key: STAGE_MIN_MS       # pacing per stage so the live view is easy to follow
+        value: "350"
+      - key: ANTHROPIC_API_KEY  # optional: set in the Render dashboard to use Claude for extraction
+        sync: false

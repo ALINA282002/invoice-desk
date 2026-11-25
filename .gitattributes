@@ -1,0 +1,10 @@
+# Text files: normalise to LF in the repo (the app is built on Linux)
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+
+# Binary: never touch line endings — would corrupt the invoice PDFs
+*.pdf binary
+*.png binary
+*.jpg binary
+*.db binary

@@ -1,0 +1,17 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+
+# local data — never commit processed invoices or the database
+storage/
+inbox/*.pdf
+inbox/processed/
+
+# machine-specific / private
+.claude/
+test-pack/your-uploads/
+test-pack/**/_tmp_*.pdf
+
+# superseded demo set
+test-pack/interview-7/

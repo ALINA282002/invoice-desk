@@ -1,0 +1,6 @@
+.venv
+storage
+inbox/processed
+test-pack
+__pycache__
+.claude

@@ -1,0 +1,66 @@
+po_number,vendor_id,issue_date,po_description,department,requester,status,currency,line_no,sku,line_description,quantity,unit_price
+PO-4500-0101,V-1001,2026-10-28,Q4 office consumables & seating,Operations,Dana Whitfield,open,USD,1,NW-PAP-A4,Copy paper A4 80gsm (box of 5 reams),40,42.50
+PO-4500-0101,V-1001,2026-10-28,Q4 office consumables & seating,Operations,Dana Whitfield,open,USD,2,NW-TON-85A,HP 85A toner cartridge,12,68.90
+PO-4500-0101,V-1001,2026-10-28,Q4 office consumables & seating,Operations,Dana Whitfield,open,USD,3,NW-CHR-ERG,Ergonomic mesh office chair,6,189.00
+PO-4500-0101,V-1001,2026-10-28,Q4 office consumables & seating,Operations,Dana Whitfield,open,USD,4,NW-WBM-12,Whiteboard markers assorted (12 pack),25,9.75
+PO-4500-0101,V-1001,2026-10-28,Q4 office consumables & seating,Operations,Dana Whitfield,open,USD,5,NW-DSK-ORG,Desk organiser set,20,14.20
+PO-4500-0105,V-1001,2026-11-03,Breakroom & janitorial consumables,Facilities,Dana Whitfield,open,USD,1,NW-COF-1KG,Coffee beans whole roast 1kg,30,18.00
+PO-4500-0105,V-1001,2026-11-03,Breakroom & janitorial consumables,Facilities,Dana Whitfield,open,USD,2,NW-TWL-CS,Paper towels multifold (case),20,32.00
+PO-4500-0105,V-1001,2026-11-03,Breakroom & janitorial consumables,Facilities,Dana Whitfield,open,USD,3,NW-SOAP-1L,Dish soap 1L,24,4.50
+PO-4500-0109,V-1001,2026-11-06,Workstation accessories - new hires,IT,Priya Raman,open,USD,1,NW-DOCK-C,USB-C docking station,10,145.00
+PO-4500-0109,V-1001,2026-11-06,Workstation accessories - new hires,IT,Priya Raman,open,USD,2,NW-MON-27,27-inch QHD monitor,10,219.00
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,1,SG-EXIT-A4,Exit sign photoluminescent A4,24,18.40
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,2,SG-FIRE-EXT,Fire extinguisher location sign,30,9.60
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,3,SG-PPE-REQ,PPE required sign 300x400mm,16,14.25
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,4,SG-FLOOR-TP,Floor marking tape yellow 50mm,40,11.80
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,5,SG-AISLE-NO,Aisle number sign set 1-20,2,96.00
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,6,SG-FORK-ZN,Forklift zone floor sign,10,42.50
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,7,SG-EYE-WASH,Eye wash station sign,8,12.75
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,8,SG-FIRST-AID,First aid point sign,8,12.75
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,9,SG-HV-WARN,High voltage warning label (10 pack),6,21.30
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,10,SG-NO-SMOKE,No smoking sign,12,7.90
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,11,ST-BINDER-2,Lever arch binder 2 inch,60,4.35
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,12,ST-PEN-BL50,Ballpoint pens blue (50 pack),12,13.60
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,13,ST-NOTE-A5,Notebook A5 ruled,80,2.95
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,14,ST-STAPLE,Heavy duty stapler,10,27.40
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,15,ST-CLIP-LG,Binder clips large (12 pack),30,3.85
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,16,ST-LABEL-L7,Shipping labels L7163 (100 sheets),15,24.90
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,17,ST-TAPE-PK,Packing tape 48mm (6 pack),25,12.20
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,18,ST-ENV-C4,Envelopes C4 (250 box),6,31.50
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,19,ST-FOLD-MN,Manila folders (100 pack),10,18.75
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,20,ST-HILITE,Highlighters assorted (12 pack),15,8.40
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,21,FA-KIT-25,First aid kit 25 person,6,58.00
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,22,FA-GLOVE-M,Nitrile gloves medium (100 box),20,9.95
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,23,FA-EARPLUG,Disposable earplugs (200 box),8,26.40
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,24,CL-WIPE-IND,Industrial wipes (tub of 150),18,14.60
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,25,CL-SPILL-KT,Spill kit general purpose 50L,3,112.00
+PO-4500-0110,V-1001,2026-11-04,"Plant 2 signage, safety & stationery refresh",Operations,Dana Whitfield,open,USD,26,CL-BIN-60L,Recycling bin 60 litre,12,36.80
+PO-4500-0102,V-1002,2026-09-15,Hydraulic pump assemblies HP-220 (blanket order),Plant Maintenance,Marcus Oyelaran,open,USD,1,HP-220,Hydraulic pump assembly HP-220,400,120.00
+PO-4500-0114,V-1002,2026-11-02,CNC spindle overhaul - Line 3,Plant Maintenance,Marcus Oyelaran,open,USD,1,SVC-CNC-OH,CNC spindle overhaul service - Line 3,1,64500.00
+PO-4500-0103,V-1003,2026-09-01,Managed IT service desk - Q4 2026,IT,Priya Raman,open,USD,1,MSD-OCT,Managed service desk - October 2026,1,8500.00
+PO-4500-0103,V-1003,2026-09-01,Managed IT service desk - Q4 2026,IT,Priya Raman,open,USD,2,MSD-NOV,Managed service desk - November 2026,1,8500.00
+PO-4500-0103,V-1003,2026-09-01,Managed IT service desk - Q4 2026,IT,Priya Raman,open,USD,3,MSD-DEC,Managed service desk - December 2026,1,8500.00
+PO-4500-0090,V-1001,2026-07-06,Q3 office consumables,Operations,Dana Whitfield,closed,USD,1,NW-PAP-A4,Copy paper A4 80gsm (box of 5 reams),30,41.00
+PO-4500-0090,V-1001,2026-07-06,Q3 office consumables,Operations,Dana Whitfield,closed,USD,2,NW-TON-85A,HP 85A toner cartridge,10,67.50
+PO-4500-0120,V-1010,2026-11-04,Product brochure print run,Marketing,Owen Patel,open,USD,1,PRN-BRO-A4,"Product brochure A4, 8 pages, full colour",5000,0.62
+PO-4500-0119,V-1003,2026-11-03,New-hire IT setup - 10 seats,IT,Priya Raman,open,USD,1,LT-14-PRO,Laptop 14-inch business (configured),10,1150.00
+PO-4500-0119,V-1003,2026-11-03,New-hire IT setup - 10 seats,IT,Priya Raman,open,USD,2,DOCK-USBC,USB-C docking station,10,145.00
+PO-4500-0119,V-1003,2026-11-03,New-hire IT setup - 10 seats,IT,Priya Raman,open,USD,3,SVC-IMG,Imaging & configuration (per seat),10,85.00
+PO-4500-0104,V-1004,2026-10-05,Inbound freight - Oct/Nov lanes,Supply Chain,Luis Ortega,open,USD,1,FTL-CHI-DAL,Full truckload Chicago IL to Dallas TX,3,1850.00
+PO-4500-0104,V-1004,2026-10-05,Inbound freight - Oct/Nov lanes,Supply Chain,Luis Ortega,open,USD,2,LTL-CONS,LTL consolidated shipment Midwest,4,420.00
+PO-4500-0108,V-1004,2026-10-20,Warehouse transfer & storage,Supply Chain,Luis Ortega,open,USD,1,DRY-LOC,Local drayage move,6,310.00
+PO-4500-0108,V-1004,2026-10-20,Warehouse transfer & storage,Supply Chain,Luis Ortega,open,USD,2,STO-PAL,Pallet storage - monthly,1,950.00
+PO-4500-0106,V-1005,2026-10-01,Q4 janitorial & HVAC maintenance,Facilities,Grace Kim,open,USD,1,JAN-MON,Janitorial services - monthly,3,6200.00
+PO-4500-0106,V-1005,2026-10-01,Q4 janitorial & HVAC maintenance,Facilities,Grace Kim,open,USD,2,HVAC-PM,HVAC preventive maintenance,2,1450.00
+PO-4500-0106,V-1005,2026-10-01,Q4 janitorial & HVAC maintenance,Facilities,Grace Kim,open,USD,3,CONS-RS,Washroom consumables restock,3,380.00
+PO-4500-0107,V-1006,2026-11-02,All-hands staff lunch,People Ops,Hannah Brooks,open,USD,1,CAT-BUF,Buffet catering (per person),120,28.50
+PO-4500-0107,V-1006,2026-11-02,All-hands staff lunch,People Ops,Hannah Brooks,open,USD,2,CAT-BEV,Beverage package (per person),120,6.00
+PO-4500-0115,V-1006,2026-11-10,Holiday party catering,People Ops,Hannah Brooks,open,USD,1,CAT-BUF,Buffet catering (per person),150,28.50
+PO-4500-0115,V-1006,2026-11-10,Holiday party catering,People Ops,Hannah Brooks,open,USD,2,CAT-BEV,Beverage package (per person),150,6.00
+PO-4500-0116,V-1006,2026-11-12,Customer workshop catering,Sales,Owen Patel,open,USD,1,CAT-BUF,Buffet catering (per person),150,28.50
+PO-4500-0116,V-1006,2026-11-12,Customer workshop catering,Sales,Owen Patel,open,USD,2,CAT-BEV,Beverage package (per person),150,6.00
+PO-4500-0117,V-1007,2026-08-12,Corrugated shipping boxes,Supply Chain,Luis Ortega,open,USD,1,BOX-18x12,Corrugated box 18x12x10 double wall,2000,1.85
+PO-4500-0118,V-1008,2026-11-09,PPE for Plant 2,EHS,Grace Kim,open,USD,1,PPE-HAT,Hard hat ANSI Type I,50,24.00
+PO-4500-0118,V-1008,2026-11-09,PPE for Plant 2,EHS,Grace Kim,open,USD,2,PPE-VEST,Hi-vis safety vest class 2,50,12.50
+PO-4500-0111,V-1009,2026-10-22,Torque tool calibration,Quality,Mei Lin,open,USD,1,CAL-TRQ,Calibration service - torque tools,4,1250.00
+PO-4500-0112,V-1009,2026-11-05,Sensor modules KS-200,Engineering,Mei Lin,open,USD,1,KS-200,Sensor module KS-200,20,310.00

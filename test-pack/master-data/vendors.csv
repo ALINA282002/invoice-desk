@@ -1,0 +1,11 @@
+vendor_id,name,aliases,status,tax_id,email_domain,contact_email,contact_phone,bank_name,routing_number,account_number,payment_terms_days,currency
+V-1001,Northwind Office Supplies Inc.,Northwind Office Supplies|Northwind Supplies,approved,74-3829105,northwind-supplies.example,ar@northwind-supplies.example,+1 (312) 555-0142,Chase Bank N.A.,021000021,483920175,30,USD
+V-1002,Apex Industrial Components LLC,Apex Industrial|Apex Industrial Components,approved,36-4410982,apex-industrial.example,billing@apex-industrial.example,+1 (414) 555-0187,Bank of America N.A.,026009593,003944712286,45,USD
+V-1003,BrightPath IT Services Ltd.,BrightPath IT|BrightPath IT Services,approved,81-2207634,brightpath-it.example,accounts@brightpath-it.example,+1 (646) 555-0119,Wells Fargo Bank,121000248,773100984410,30,USD
+V-1004,Meridian Logistics Co.,Meridian Logistics|Meridian Freight,approved,47-9902318,meridian-logistics.example,invoices@meridian-logistics.example,+1 (214) 555-0163,PNC Bank,043000096,552011873301,15,USD
+V-1005,Cobalt Facilities Management,Cobalt Facilities|Cobalt FM,approved,20-5583017,cobaltfm.example,finance@cobaltfm.example,+1 (630) 555-0128,JPMorgan Chase Bank,071000013,991022845567,30,USD
+V-1006,Greenleaf Catering Co.,Greenleaf Catering,approved,61-3375590,greenleaf-catering.example,hello@greenleaf-catering.example,+1 (773) 555-0154,Fifth Third Bank,071923909,7140022618,14,USD
+V-1007,Summit Packaging Ltd,Summit Packaging,blocked,58-1120449,summitpack.example,ar@summitpack.example,+1 (317) 555-0171,Huntington National Bank,044000024,0162773390,30,USD
+V-1008,Orion Safety Supply Co.,Orion Safety Supply|Orion Safety,pending_onboarding,39-6610274,orionsafety.example,orders@orionsafety.example,+1 (608) 555-0133,U.S. Bank,075000022,182244719053,30,USD
+V-1009,Kestrel Engineering Ltd.,Kestrel Engineering,approved,88-4417730,kestrel-eng.example,accounts@kestrel-eng.example,+1 (416) 555-0190,RBC Bank (USA),053101561,640017755120,30,USD
+V-1010,Harbor Point Printing Co.,Harbor Point Printing|Harbor Point,inactive,52-7730416,harborpointprint.example,billing@harborpointprint.example,+1 (847) 555-0126,BMO Bank N.A.,071025661,550031887264,30,USD

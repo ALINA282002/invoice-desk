@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invoice Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%233056d3'/%3E%3Cpath d='M10 8h8l4 4v12H10z' fill='white'/%3E%3Cpath d='M13 17l2.5 2.5L20 15' stroke='%233056d3' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menu"><span data-icon="menu"></span></button>
+    <a class="brand" href="#/overview">
+      <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--accent)"/><path d="M10 8h8l4 4v12H10z" fill="#fff"/><path d="M13 17l2.5 2.5L20 15" stroke="var(--accent)" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+      <span>Invoice Desk</span>
+    </a>
+    <form class="search" id="global-search" role="search">
+      <span data-icon="search"></span>
+      <input type="search" id="global-q" placeholder="Search invoices, vendors, PO numbers…" aria-label="Search invoices">
+    </form>
+    <div class="top-right">
+      <span class="proc" id="proc-indicator" hidden></span>
+      <button class="btn primary" id="upload-btn"><span data-icon="upload"></span><span class="hide-sm">Upload invoices</span></button>
+      <div class="org" id="org-chip" title="Company"></div>
+    </div>
+  </header>
+  <div class="shell">
+    <aside class="side" id="side">
+      <nav>
+        <div class="nav-group">Workspace</div>
+        <a href="#/overview" data-nav="overview"><span data-icon="home"></span>Overview</a>
+        <a href="#/invoices" data-nav="invoices"><span data-icon="file"></span>Invoices</a>
+        <a href="#/exceptions" data-nav="exceptions"><span data-icon="flag"></span>Exceptions<span class="count" id="exc-count" hidden></span></a>
+        <a href="#/payments" data-nav="payments"><span data-icon="bank"></span>Payments</a>
+        <div class="nav-group">Master data</div>
+        <a href="#/vendors" data-nav="vendors"><span data-icon="users"></span>Vendors</a>
+        <a href="#/purchase-orders" data-nav="purchase-orders"><span data-icon="clipboard"></span>Purchase orders</a>
+        <div class="nav-group">Administration</div>
+        <a href="#/audit" data-nav="audit"><span data-icon="history"></span>Audit log</a>
+        <a href="#/settings" data-nav="settings"><span data-icon="gear"></span>Settings</a>
+      </nav>
+      <div class="side-foot" id="sys-status"></div>
+    </aside>
+    <main class="main" id="view" tabindex="-1"></main>
+  </div>
+  <div class="drop-overlay" id="drop-overlay"><div><span data-icon="upload"></span><b>Drop PDF invoices to upload</b></div></div>
+  <dialog id="dlg"></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="tip" id="tip" role="tooltip"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
