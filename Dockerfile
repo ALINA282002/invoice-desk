@@ -2,7 +2,9 @@ FROM python:3.12-slim
 
 # BOOTSTRAP_DIR: a fresh (empty) disk loads company + vendor master + PO register from demo-config/.
 # INBOX_WATCH=0: no mailbox folder in the cloud. Hosts that inject PORT (Render) override 8765.
-ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PORT=8765 BOOTSTRAP_DIR=demo-config INBOX_WATCH=0
+# OCR_THREADS=1 + MALLOC_ARENA_MAX=2: keep memory well inside a 512 MB free instance (OCR itself runs in a child
+# process that exits after each scan, see app/extraction.py).
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PORT=8765 BOOTSTRAP_DIR=demo-config INBOX_WATCH=0 OCR_THREADS=1 MALLOC_ARENA_MAX=2
 RUN apt-get update && apt-get install -y --no-install-recommends libgl1 libglib2.0-0 && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

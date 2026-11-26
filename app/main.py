@@ -19,7 +19,7 @@ from fastapi.responses import FileResponse, JSONResponse, Response, StreamingRes
 from fastapi.staticfiles import StaticFiles
 
 from . import db, pipeline
-from .extraction import claude_available, get_ocr, render_page_png
+from .extraction import claude_available, ocr_check, render_page_png
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 logging.getLogger("RapidOCR").setLevel(logging.WARNING)
@@ -78,7 +78,7 @@ def _startup() -> None:
 
     def warm():
         try:
-            get_ocr()
+            ocr_check()
             OCR_READY["ready"] = True
             log.info("OCR engine ready")
         except Exception as e:
@@ -159,7 +159,19 @@ def _csv_response(rows: list[dict], cols: list[str], name: str) -> Response:
 def health():
     return {"ok": True, "extractor": "claude" if claude_available() else "rules", "ocr_ready": OCR_READY["ready"],
             "model": os.environ.get("CLAUDE_MODEL", "claude-opus-5-5") if claude_available() else None,
-            "inbox": str(INBOX), "busy": pipeline.busy()}
+            "inbox": str(INBOX), "busy": pipeline.busy(), "memory_mb": _rss_mb(), "up_since": _STARTED}
+
+
+_STARTED = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+
+def _rss_mb():
+    """Resident memory of the server process (Linux only), so a small cloud instance can be watched for headroom."""
+    try:
+        with open("/proc/self/status") as f:
+            return next(int(l.split()[1]) // 1024 for l in f if l.startswith("VmRSS:"))
+    except Exception:
+        return None
 
 
 @app.get("/api/setup")

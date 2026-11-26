@@ -12,8 +12,11 @@ import json
 import logging
 import os
 import re
+import subprocess
+import sys
 import threading
 from datetime import date, datetime
+from pathlib import Path
 from typing import Any
 
 import pdfplumber
@@ -40,9 +43,41 @@ def get_ocr():
             # Memory-lean settings (peak ~420 MB instead of ~760 MB per scanned page, measured), so it runs on small
             # cloud instances: the detector works on at most 1280 px per side instead of the full page, and the
             # text-orientation classifier is skipped (invoice scans are upright). OCR quality was unchanged in tests.
-            _ocr_engine = RapidOCR(params={"Global.use_cls": False, "Det.limit_type": "max",
-                                           "Det.limit_side_len": int(os.environ.get("OCR_MAX_SIDE", "1280"))})
+            params = {"Global.use_cls": False, "Det.limit_type": "max",
+                      "Det.limit_side_len": int(os.environ.get("OCR_MAX_SIDE", "1280"))}
+            if os.environ.get("OCR_THREADS"):  # fewer threads = fewer per-thread buffers on small instances
+                params["EngineConfig.onnxruntime.intra_op_num_threads"] = int(os.environ["OCR_THREADS"])
+                params["EngineConfig.onnxruntime.inter_op_num_threads"] = 1
+            _ocr_engine = RapidOCR(params=params)
         return _ocr_engine
+
+
+# OCR runs in a short-lived child process by default (OCR_ISOLATE=1). The models plus one page of inference need
+# ~300 MB; in-process that memory is never handed back to the OS, so a long-running server creeps up with every scan
+# until a 512 MB cloud instance is killed (and its disk wiped). A child process returns all of it when it exits.
+OCR_ISOLATE = os.environ.get("OCR_ISOLATE", "1") == "1"
+_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _ocr_isolated(pdf_bytes: bytes, page_idxs: list[int]) -> list[tuple[str, float, float]]:
+    with _ocr_lock:  # one OCR child at a time, so peaks never stack
+        r = subprocess.run([sys.executable, "-m", "app.ocr_worker", *map(str, page_idxs)], input=pdf_bytes,
+                           capture_output=True, cwd=_ROOT, timeout=900)
+    if r.returncode != 0:
+        tail = r.stderr.decode("utf-8", "replace").strip().splitlines()[-3:]
+        raise RuntimeError("OCR process failed: " + (" | ".join(tail) or f"exit code {r.returncode}"))
+    return [tuple(x) for x in json.loads(r.stdout.decode("utf-8"))]
+
+
+def ocr_check() -> None:
+    """Load the OCR models once (in a child when isolated) so the first scan isn't slow and failures show early."""
+    if OCR_ISOLATE:
+        r = subprocess.run([sys.executable, "-m", "app.ocr_worker", "--check"], capture_output=True, cwd=_ROOT,
+                           timeout=600)
+        if r.returncode != 0:
+            raise RuntimeError(r.stderr.decode("utf-8", "replace")[-300:])
+    else:
+        get_ocr()
 
 
 def _ocr_page(page: pymupdf.Page) -> tuple[str, float, float]:
@@ -85,15 +120,22 @@ def read_document(pdf_bytes: bytes) -> dict[str, Any]:
     with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
         layer = [(p.extract_text() or "") for p in pdf.pages]
     doc = pymupdf.open(stream=pdf_bytes, filetype="pdf")
-    for i, page in enumerate(doc):
-        txt = layer[i] if i < len(layer) else ""
-        if len(txt.strip()) >= MIN_TEXT_CHARS_PER_PAGE:
-            pages_out.append({"page": i + 1, "method": "text_layer", "text": txt, "confidence": 1.0, "low_share": 0.0})
-        else:
-            otxt, conf, low = _ocr_page(page)
+    n = len(doc)
+    need_ocr = [i for i in range(n) if len((layer[i] if i < len(layer) else "").strip()) < MIN_TEXT_CHARS_PER_PAGE]
+    if need_ocr and OCR_ISOLATE:
+        doc.close()
+        ocr = dict(zip(need_ocr, _ocr_isolated(pdf_bytes, need_ocr)))
+    else:
+        ocr = {i: _ocr_page(doc[i]) for i in need_ocr}
+        doc.close()
+    for i in range(n):
+        if i in ocr:
+            otxt, conf, low = ocr[i]
             pages_out.append({"page": i + 1, "method": "ocr", "text": otxt, "confidence": round(conf, 3),
                               "low_share": round(low, 3)})
-    doc.close()
+        else:
+            pages_out.append({"page": i + 1, "method": "text_layer", "text": layer[i], "confidence": 1.0,
+                              "low_share": 0.0})
     methods = {p["method"] for p in pages_out}
     return {
         "pages": pages_out,
