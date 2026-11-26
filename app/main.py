@@ -427,7 +427,9 @@ def stats():
     fin = Counter(r["final_status"] for r in runs)
     reasons = Counter(c for r in runs for c in (r["reason_codes"] or "").split(",") if c)
     val = lambda rs: round(sum((r["total"] or 0) for r in rs), 2)  # noqa: E731
-    dup = [r for r in runs if "DUPLICATE" in (r["reason_codes"] or "")]
+    # "stopped" = duplicates actually rejected; a possible duplicate still waiting for review is not counted
+    confirmed = {"DUPLICATE_EXACT_FILE", "DUPLICATE_INVOICE", "DUPLICATE_RENUMBERED"}
+    dup = [r for r in runs if confirmed & set((r["reason_codes"] or "").split(","))]
     fraud = [r for r in runs if "BANK_DETAILS_CHANGED" in (r["reason_codes"] or "")]
     open_ = [r for r in runs if r["final_status"] in ("NEEDS_REVIEW", "ON_HOLD")]
     sched = db.q("SELECT COALESCE(SUM(total),0) v, COUNT(*) n FROM invoice_ledger")[0]
